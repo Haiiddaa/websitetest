@@ -38,7 +38,17 @@
     <section class="shop">
         <div class="container">
             <h1>Online-Shop für Lizenzen</h1>
-            <!-- Hier kommen die Inhalte deines Onlineshops -->
+            <!-- Warenkorb -->
+            <div class="cart">
+                <h2>Warenkorb</h2>
+                <!-- Hier kommen die Inhalte des Warenkorbs -->
+            </div>
+            <!-- Testprodukt -->
+            <div class="product">
+                <h2>Testlizenz</h2>
+                <p>Preis: 0€</p>
+                <button onclick="addToCart('Testlizenz', 0)">In den Warenkorb</button>
+            </div>
         </div>
     </section>
 
@@ -49,5 +59,13 @@
             <p><a href="impressum.html">Impressum</a></p>
         </div>
     </footer>
+
+    <script>
+        // Funktion zum Hinzufügen von Produkten zum Warenkorb
+        function addToCart(productName, price) {
+            // Hier wird die Logik zum Hinzufügen des Produkts zum Warenkorb eingefügt
+            console.log('Das Produkt ' + productName + ' wurde zum Warenkorb hinzugefügt.');
+        }
+    </script>
 </body>
 </html>
