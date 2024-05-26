@@ -41,7 +41,8 @@
             <!-- Warenkorb -->
             <div class="cart">
                 <h2>Warenkorb</h2>
-                <!-- Hier kommen die Inhalte des Warenkorbs -->
+                <ul id="cart-items"></ul>
+                <p>Gesamt: <span id="cart-total">0€</span></p>
             </div>
             <!-- Testprodukt -->
             <div class="product">
@@ -61,10 +62,28 @@
     </footer>
 
     <script>
+        // Warenkorb
+        let cart = [];
+
         // Funktion zum Hinzufügen von Produkten zum Warenkorb
         function addToCart(productName, price) {
-            // Hier wird die Logik zum Hinzufügen des Produkts zum Warenkorb eingefügt
-            console.log('Das Produkt ' + productName + ' wurde zum Warenkorb hinzugefügt.');
+            cart.push({ name: productName, price: price });
+            updateCart();
+        }
+
+        // Funktion zum Aktualisieren des Warenkorbs auf der Seite
+        function updateCart() {
+            const cartItemsElement = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            let total = 0;
+            cartItemsElement.innerHTML = '';
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item.name + ': ' + item.price + '€';
+                cartItemsElement.appendChild(listItem);
+                total += item.price;
+            });
+            cartTotalElement.textContent = total + '€';
         }
     </script>
 </body>
