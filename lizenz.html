@@ -30,6 +30,9 @@
                     <li><a href="lizenz.html">Lizenzen</a></li> <!-- Aktive Seite: Lizenzen -->
                 </ul>
             </nav>
+            <div class="cart-icon">
+                <a href="#" onclick="showCart()"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </div>
     </header>
 
@@ -39,7 +42,7 @@
         <div class="container">
             <h1>Online-Shop für Lizenzen</h1>
             <!-- Warenkorb -->
-            <div class="cart">
+            <div class="cart" id="cart">
                 <h2>Warenkorb</h2>
                 <ul id="cart-items"></ul>
                 <p>Gesamt: <span id="cart-total">0€</span></p>
@@ -64,6 +67,7 @@
     <script>
         // Warenkorb
         let cart = [];
+        const cartElement = document.getElementById('cart');
 
         // Funktion zum Hinzufügen von Produkten zum Warenkorb
         function addToCart(productName, price) {
@@ -84,6 +88,11 @@
                 total += item.price;
             });
             cartTotalElement.textContent = total + '€';
+        }
+
+        // Funktion zum Anzeigen des Warenkorbs
+        function showCart() {
+            cartElement.classList.toggle('show');
         }
     </script>
 </body>
